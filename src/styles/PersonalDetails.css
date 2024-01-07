@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('src/fonts/Poppins/Poppins-Light.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Poppins';
+}
+
+h3 {
+    margin: none;
+}
+
+.personalDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 50px;
+    border-radius: 5px;
+    background-color: gray;
+    padding: 15px;
+    width: 25vw;
+    height: 40vh;
+}

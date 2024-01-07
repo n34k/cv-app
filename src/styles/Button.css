@@ -1,0 +1,8 @@
+.button {
+    background-color: darkgray;
+    width: 100px;
+    height: 30px;
+    border-radius: 25px;
+    align-self: center;
+    margin: 20px;
+}
