@@ -1,10 +1,10 @@
-import "../styles/PersonalDetails.css"
+import "../styles/InputSection.css"
 import Button from "./Button";
 import InputGroup from "./InputGroup";
 
 function PersonalDetails() {
     return (
-        <div className="personalDetails">
+        <div className="inputSection">
             <h3>Personal Information</h3>
             <InputGroup
                 inputTitle="First Name"
