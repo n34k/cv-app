@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import '../styles/InputGroup.css'
 
-function InputGroup({inputTitle, inputType}) {
+function InputGroup({inputTitle, inputType, value}) {
     return (
         <div className='inputBox'>
             <h4>{inputTitle}</h4>
-            <input className='input' type={inputType}></input>
+            <input 
+                className='input' 
+                type={inputType}>
+                value={value}
+            </input>
         </div>
     )
 }
@@ -13,6 +17,7 @@ function InputGroup({inputTitle, inputType}) {
 InputGroup.propTypes = {
     inputTitle: PropTypes.string,
     inputType: PropTypes.string,
+    value: PropTypes.string
 };
 
 export default InputGroup
