@@ -1,0 +1,11 @@
+.app {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.inputs {
+    overflow: auto;
+    height: 100vh;
+}

@@ -1,60 +1,60 @@
-import "../styles/InputSection.css"
+import  { useState } from 'react';
 import PropTypes from 'prop-types';
-import AddButton from "./AddButton";
-import Button from "./Button";
-import InputGroup from "./InputGroup";
-import { useState } from "react";
+import AddButton from './AddButton';
+import InputGroup from './InputGroup';
+import Button from './Button';
 
-function PersonalDetails({firstName, lastName, email, number, link}) {
-    const [inputBoxes, setDisplayInputBoxes] = useState("flex");
-    const toggleInputBoxes = () => {
-        setDisplayInputBoxes((prevDisplay) => (prevDisplay === "flex" ? "none" : "flex"));
-    }
+function PersonalDetails({ formData, onSave, handleInputChange }) {
+  const [inputBoxes, setDisplayInputBoxes] = useState('flex');
+  const toggleInputBoxes = () => {
+    setDisplayInputBoxes((prevDisplay) => (prevDisplay === 'flex' ? 'none' : 'flex'));
+  };  
 
-    return (
-        <div className="inputSection">
-            <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={"Personal Information"}
-            />
-            <div className="inputBoxes" style={{display: inputBoxes}}>
-                <InputGroup
-                    inputTitle="First Name"
-                    inputType= "text"
-                    value={firstName}
-                />
-                <InputGroup
-                    inputTitle="Last Name"
-                    inputType="text"
-                    value={lastName}
-                />
-                <InputGroup
-                    inputTitle="Email"
-                    inputType="email"
-                    value={email}
-                />
-                <InputGroup
-                    inputTitle="Phone Number"
-                    inputType="phone"
-                    value={number}
-                />
-                <InputGroup
-                    inputTitle="Link"
-                    inputType="url"
-                    value={link}
-                />
-                <Button
-                    buttonDesc="Save"
-                />
-             </div>
-        </div>
-    )
+  const handleSave = () => {
+    onSave();
+  };
+
+  return (
+    <div className="inputSection">
+      <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={'Personal Information'} />
+      <div className="inputBoxes" style={{ display: inputBoxes }}>
+        <InputGroup
+            inputTitle="First Name" 
+            inputType="text" value={formData.firstName} 
+            onChange={(value) => handleInputChange('firstName', value)} 
+        />
+        <InputGroup 
+            inputTitle="Last Name" 
+            inputType="text" value={formData.lastName} 
+            onChange={(value) => handleInputChange('lastName', value)} 
+        />
+        <InputGroup inputTitle="Email" 
+            inputType="email" 
+            value={formData.email} 
+            onChange={(value) => handleInputChange('email', value)}
+        />
+        <InputGroup 
+            inputTitle="Phone Number" 
+            inputType="phone" 
+            value={formData.number} 
+            onChange={(value) => handleInputChange('number', value)} 
+        />
+        <InputGroup 
+            inputTitle="Link"
+            inputType="url" 
+            value={formData.link} 
+            onChange={(value) => handleInputChange('link', value)} 
+        />
+        <Button buttonDesc="Save" onClick={handleSave} />
+      </div>
+    </div>
+  );
 }
 
 PersonalDetails.propTypes = {
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    email: PropTypes.string,
-    link: PropTypes.string,
-    number: PropTypes.string
-}
+  formData: PropTypes.object,
+  onSave: PropTypes.func,
+  handleInputChange: PropTypes.func
+};
 
-export default PersonalDetails
+export default PersonalDetails;

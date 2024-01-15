@@ -5,11 +5,6 @@
     font-style: normal;
 }
 
-* {
-    font-family: 'Poppins';
-    color: white;
-}
-
 h3 {
     margin: none;
 }
@@ -20,6 +15,7 @@ h3 {
 }
 
 .inputSection {
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

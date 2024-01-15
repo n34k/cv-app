@@ -1,0 +1,15 @@
+.resume {
+    width: 566.6px;
+    height: 733.3px;
+    background-color: white;
+    justify-self: center;
+    margin-right: 150px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    
+}
