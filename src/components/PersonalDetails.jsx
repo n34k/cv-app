@@ -4,14 +4,35 @@ import AddButton from './AddButton';
 import InputGroup from './InputGroup';
 import Button from './Button';
 
-function PersonalDetails({ formData, onSave, handleInputChange }) {
+function PersonalDetails({  updateFormData }) {
+  const [inputValues, setInputValues] = useState({
+    firstName: '',
+    lastName: '',
+    address: '',
+    email: '',
+    number: '',
+    link: '',
+  });
+
+  const handleInputChange = (fieldName, value) => {
+    setInputValues((prevData) => ({ ...prevData, [fieldName]: value }));
+  };
+
   const [inputBoxes, setDisplayInputBoxes] = useState('flex');
+
   const toggleInputBoxes = () => {
     setDisplayInputBoxes((prevDisplay) => (prevDisplay === 'flex' ? 'none' : 'flex'));
   };  
 
   const handleSave = () => {
-    onSave();
+    updateFormData({
+      firstName: inputValues.firstName,
+      lastName: inputValues.lastName,
+      address: inputValues.address,
+      email: inputValues.email,
+      number: inputValues.number,
+      link: inputValues.link
+    });
   };
 
   return (
@@ -20,29 +41,38 @@ function PersonalDetails({ formData, onSave, handleInputChange }) {
       <div className="inputBoxes" style={{ display: inputBoxes }}>
         <InputGroup
             inputTitle="First Name" 
-            inputType="text" value={formData.firstName} 
+            inputType="text" 
+            value={inputValues.firstName}
             onChange={(value) => handleInputChange('firstName', value)} 
         />
         <InputGroup 
             inputTitle="Last Name" 
-            inputType="text" value={formData.lastName} 
+            inputType="text" 
+            value={inputValues.lastName} 
             onChange={(value) => handleInputChange('lastName', value)} 
         />
-        <InputGroup inputTitle="Email" 
+         <InputGroup 
+            inputTitle="Address" 
+            inputType="text" 
+            value={inputValues.address} 
+            onChange={(value) => handleInputChange('address', value)} 
+        />
+        <InputGroup 
+            inputTitle="Email" 
             inputType="email" 
-            value={formData.email} 
+            value={inputValues.email} 
             onChange={(value) => handleInputChange('email', value)}
         />
         <InputGroup 
             inputTitle="Phone Number" 
             inputType="phone" 
-            value={formData.number} 
+            value={inputValues.number} 
             onChange={(value) => handleInputChange('number', value)} 
         />
         <InputGroup 
             inputTitle="Link"
             inputType="url" 
-            value={formData.link} 
+            value={inputValues.link} 
             onChange={(value) => handleInputChange('link', value)} 
         />
         <Button buttonDesc="Save" onClick={handleSave} />
@@ -52,9 +82,7 @@ function PersonalDetails({ formData, onSave, handleInputChange }) {
 }
 
 PersonalDetails.propTypes = {
-  formData: PropTypes.object,
-  onSave: PropTypes.func,
-  handleInputChange: PropTypes.func
+  updateFormData: PropTypes.func
 };
 
 export default PersonalDetails;

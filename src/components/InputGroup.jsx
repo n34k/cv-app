@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import '../styles/InputGroup.css';
 
 function InputGroup({ inputTitle, inputType, value, onChange }) {
-  const handleInputChange = (e) => {
+  const inputChange = (e) => {
     onChange(e.target.value);
   };
 
@@ -13,7 +13,7 @@ function InputGroup({ inputTitle, inputType, value, onChange }) {
         className='input'
         type={inputType}
         value={value}
-        onChange={handleInputChange}
+        onChange={inputChange}
       />
     </div>
   );
@@ -23,7 +23,7 @@ InputGroup.propTypes = {
   inputTitle: PropTypes.string,
   inputType: PropTypes.string,
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func
 };
 
 export default InputGroup;

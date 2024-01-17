@@ -9,30 +9,24 @@ import { useState } from 'react';
 
 function App() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    number: '',
-    link: '',
+      firstName: '',
+      lastName: '',
+      address: '',
+      email: '',
+      number: '',
+      link: '',
   });
-  
-  const handleInputChange = (fieldName, value) => {
-    setFormData((prevData) => ({ ...prevData, [fieldName]: value }));
-  };
-  
-  const handleSave = () => {
-    console.log('Saved:', formData);
-    
-  };
 
+  const updateFormData = (newData) => {
+    setFormData((prevData) => ({ ...prevData, ...newData }));
+  };
 
   return (
     <div className="app">
       <div className="inputs">
         <PersonalDetails
           formData={formData}
-          handleInputChange={handleInputChange}
-          onSave={handleSave}
+          updateFormData={updateFormData}
           />
         <Education/>
         <Experience/>
