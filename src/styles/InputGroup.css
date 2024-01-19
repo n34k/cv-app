@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.savedInfo {
+    width: 15vw;
+}
+
 h4 {
     margin: 0;
 }

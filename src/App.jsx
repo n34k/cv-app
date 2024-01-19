@@ -15,6 +15,10 @@ function App() {
       email: '',
       number: '',
       link: '',
+      projects: [],
+      education: [],
+      experience: [],
+      skills: ''
   });
 
   const updateFormData = (newData) => {
@@ -27,7 +31,7 @@ function App() {
         <PersonalDetails
           formData={formData}
           updateFormData={updateFormData}
-          />
+        />
         <Education/>
         <Experience/>
         <Projects/>
