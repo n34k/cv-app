@@ -25,10 +25,6 @@ function PersonalDetails({  updateFormData }) {
 
   });
 
-  // const updateSavedState = (fieldName) => {
-  //   setSavedStates((prevStates) => ({ ...prevStates, [fieldName]: true }));
-  // };
-
   const handleInputChange = (fieldName, value) => {
     setInputValues((prevData) => ({ ...prevData, [fieldName]: value }));
   };

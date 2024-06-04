@@ -15,9 +15,15 @@ function App() {
       email: '',
       number: '',
       link: '',
-      projects: [],
-      education: [],
-      experience: [],
+      education: [{university: '', degree: '', major: '', GPA: '', startDate: '', endDate: ''},
+                  {university: '', degree: '', major: '', GPA: '', startDate: '', endDate: ''},
+                  {university: '', degree: '', major: '', GPA: '', startDate: '', endDate: ''}],
+      projects: [{projectTitle: '', projectDescription: ''},
+                 {projectTitle: '', projectDescription: ''},
+                 {projectTitle: '', projectDescription: ''}],
+      experience: [{jobName: '', description: '', startDate: '', endDate: ''},
+                   {jobName: '', description: '', startDate: '', endDate: ''},
+                   {jobName: '', description: '', startDate: '', endDate: ''}],
       skills: ''
   });
 
@@ -32,10 +38,22 @@ function App() {
           formData={formData}
           updateFormData={updateFormData}
         />
-        <Education/>
-        <Experience/>
-        <Projects/>
-        <Skills/>
+        <Education
+          formData={formData}
+          updateFormData={updateFormData}
+        />
+        <Experience
+          formData={formData}
+          updateFormData={updateFormData}
+        />
+        <Projects
+          formData={formData}
+          updateFormData={updateFormData}
+        />
+        <Skills
+          formData={formData}
+          updateFormData={updateFormData}
+        />
       </div>
       <div>
         <Resume
