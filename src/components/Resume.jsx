@@ -2,6 +2,7 @@ import "../styles/Resume.css"
 import PropTypes from 'prop-types';
 
 function Resume({formData}) {
+    console.log(formData.education)
     return (
         <div className="resume">
             <div className="personalInfo">

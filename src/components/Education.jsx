@@ -6,19 +6,21 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 
 function Education({ updateFormData, formData }) {
-    let educationIndex = 0;
     const [inputValues, setInputValues] = useState({
         university: '',
         degree: '',
         major: '',
         GPA: '',
         startDate: '',
-        endDate: ''
-    });
+        endDate: '',
 
-    const handleInputChange = (fieldName, value) => {
-        setInputValues((prevData) => ({ ...prevData, [fieldName]: value }));
-      };
+        university2: '',
+        degree2: '',
+        major2: '',
+        GPA2: '',
+        startDate2: '',
+        endDate2: ''
+    });
 
     const [savedStates, setSavedStates] = useState({ 
         university: false,
@@ -26,16 +28,36 @@ function Education({ updateFormData, formData }) {
         major: false,
         GPA: false,
         startDate: false,
-        endDate: false
+        endDate: false,
+
+        university2: false,
+        degree2: false,
+        major2: false,
+        GPA2: false,
+        startDate2: false,
+        endDate2: false,
     });
 
+    const [addAnother, setAddAnother] = useState(false)
+
+     const handleInputChange = (fieldName, value) => {
+        setInputValues((prevData) => ({ ...prevData, [fieldName]: value }));
+    };
+
     const handleSave = () => {
-        formData.education[educationIndex].university = inputValues.university;
-        formData.education[educationIndex].degree = inputValues.degree;
-        formData.education[educationIndex].major = inputValues.major;
-        formData.education[educationIndex].GPA = inputValues.GPA;
-        formData.education[educationIndex].startDate = inputValues.startDate;
-        formData.education[educationIndex].endDate = inputValues.endDate;
+        formData.education[0].university = inputValues.university;
+        formData.education[0].degree = inputValues.degree;
+        formData.education[0].major = inputValues.major;
+        formData.education[0].GPA = inputValues.GPA;
+        formData.education[0].startDate = inputValues.startDate;
+        formData.education[0].endDate = inputValues.endDate;
+
+        formData.education[1].university = inputValues.university2;
+        formData.education[1].degree = inputValues.degree2;
+        formData.education[1].major = inputValues.major2;
+        formData.education[1].GPA = inputValues.GPA2;
+        formData.education[1].startDate = inputValues.startDate2;
+        formData.education[1].endDate = inputValues.endDate2;
 
         updateFormData();
         
@@ -46,19 +68,32 @@ function Education({ updateFormData, formData }) {
           GPA: true,
           startDate: true,
           endDate: true,
+
+          university2: true,
+          degree2: true,
+          major2: true,
+          GPA2: true,
+          startDate2: true,
+          endDate2: true,
         });
-        console.log(formData.education[educationIndex]);
     }
 
     const handleEdit = () => {
         setSavedStates({
-          university: false,
-          degree: false,
-          major: false,
-          GPA: false,
-          startDate: false,
-          endDate: false
-        })
+            university: false,
+            degree: false,
+            major: false,
+            GPA: false,
+            startDate: false,
+            endDate: false,
+
+            university2: false,
+            degree2: false,
+            major2: false,
+            GPA2: false,
+            startDate2: false,
+            endDate2: false
+        }) 
     }
 
     const [inputBoxes, setDisplayInputBoxes] = useState("flex");
@@ -66,10 +101,55 @@ function Education({ updateFormData, formData }) {
     const toggleInputBoxes = () => {
         setDisplayInputBoxes((prevDisplay) => (prevDisplay === "flex" ? "none" : "flex"));
     }
+
+    const addEducation = () => {
+        setAddAnother(true)
+        handleEdit()
+    }
+
+    const clear = () => {
+        setAddAnother(false)
+
+        setSavedStates({
+            university: '',
+            degree: '',
+            major: '',
+            GPA: '',
+            startDate: '',
+            endDate: '',
+
+            university2: '',
+            degree2: '',
+            major2: '',
+            GPA2: '',
+            startDate2: '',
+            endDate2: ''
+        })
+
+        setInputValues({
+            university: '',
+            degree: '',
+            major: '',
+            GPA: '',
+            startDate: '',
+            endDate: '',
+
+            university2: '',
+            degree2: '',
+            major2: '',
+            GPA2: '',
+            startDate2: '',
+            endDate2: ''
+        })
+
+        updateFormData()
+    }
+
     return (
         <div className="inputSection">
             <AddButton className="addButton" addTitle={"Education"} onClick={toggleInputBoxes}
             />
+            <h3>Education 1:</h3>
             <div className="inputBoxes" style={{display: inputBoxes}} >
                 <InputGroup
                 inputTitle="University"
@@ -112,13 +192,62 @@ function Education({ updateFormData, formData }) {
                 value={inputValues.endDate}
                 onChange={(value) => handleInputChange('endDate', value)}
                 saved={savedStates.endDate}
-                />
-                {savedStates.university ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> <Button buttonDesc="Add Another" /> </div> : <Button buttonDesc="Save" onClick={handleSave} />}
+                />  
             </div>
+
+            {addAnother ? <h3>Education 2:</h3> : ''}
+
+            {addAnother ? 
+            <div className="inputBoxes" style={{display: inputBoxes}} >
+            
+                <InputGroup
+                inputTitle="University"
+                inputType="text"
+                value={inputValues.university2}
+                onChange={(value) => handleInputChange('university2', value)}
+                saved={savedStates.university2}
+                />
+                <InputGroup
+                inputTitle="Degree"
+                inputType="text"
+                value={inputValues.degree2}
+                onChange={(value) => handleInputChange('degree2', value)}
+                saved={savedStates.degree2}
+                />
+                <InputGroup
+                inputTitle="Major"
+                inputType="text"
+                value={inputValues.major2}
+                onChange={(value) => handleInputChange('major2', value)}
+                saved={savedStates.major2}
+                />
+                <InputGroup
+                inputTitle="GPA"
+                inputType="number"
+                value={inputValues.GPA2}
+                onChange={(value) => handleInputChange('GPA2', value)}
+                saved={savedStates.GPA2}
+                />
+                <InputGroup
+                inputTitle="Start Date"
+                inputType="month"
+                value={inputValues.startDate2}
+                onChange={(value) => handleInputChange('startDate2', value)}
+                saved={savedStates.startDate2}
+                />
+                <InputGroup
+                inputTitle="End Date"
+                inputType="month"
+                value={inputValues.endDate2}
+                onChange={(value) => handleInputChange('endDate2', value)}
+                saved={savedStates.endDate2}
+                />
+            </div> : ''}
+            {savedStates.university ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+            {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addEducation}/>} </div> 
+            : <Button buttonDesc="Save" onClick={handleSave}/> }
         </div>
-    )
-    
-}
+    )}
 
 Education.propTypes = {
     updateFormData: PropTypes.func,
