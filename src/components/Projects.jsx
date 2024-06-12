@@ -90,49 +90,50 @@ function Projects({ updateFormData, formData} ) {
 
     return (
         <div className="inputSection">
-            <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={"Projects"}
-            />
-            <h3>Project 1:</h3>
+            <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={"Projects"}/>
             <div className="inputBoxes" style={{display: inputBoxes}}>
+                <h3>Project 1:</h3>
                 <InputGroup
-                    inputTitle="Project Title"
+                    inputTitle="Project Title:"
                     inputType= "text"
                     value={inputValues.projectTitle}
                     onChange={(value) => handleInputChange('projectTitle', value)}
                     saved={savedStates.projectTitle}
                 />
                 <InputGroup
-                    inputTitle="Description"
+                    inputTitle="Description:"
                     inputType="text"
                     value={inputValues.projectDescription}
                     onChange={(value) => handleInputChange('projectDescription', value)}
                     saved={savedStates.projectDescription}
                 />
+                {addAnother ? '' : savedStates.projectTitle ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+                {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addProject}/>} </div> 
+                : <Button buttonDesc="Save" onClick={handleSave}/> }
              </div>
 
-             {addAnother ? <h3>Education 2:</h3> : ''}
-
-             {addAnother ?
-             <div className="inputBoxes" style={{display: inputBoxes}}>
+            {addAnother ?
+            <div className="inputBoxes" style={{display: inputBoxes}}>
+                {addAnother ? <h3>Project 2:</h3> : ''}
                 <InputGroup
-                    inputTitle="Project Title"
+                    inputTitle="Project Title:"
                     inputType= "text"
                     value={inputValues.projectTitle2}
                     onChange={(value) => handleInputChange('projectTitle2', value)}
                     saved={savedStates.projectTitle2}
                 />
                 <InputGroup
-                    inputTitle="Description"
+                    inputTitle="Description:"
                     inputType="text"
                     value={inputValues.projectDescription2}
                     onChange={(value) => handleInputChange('projectDescription2', value)}
                     saved={savedStates.projectDescription2}
                 />
-          </div> 
+                {savedStates.projectTitle ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+                {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addProject}/>} </div> 
+                : <Button buttonDesc="Save" onClick={handleSave}/> }
+            </div> 
              : ''}
-             {savedStates.projectTitle ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
-             {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addProject}/>} </div> 
-            : <Button buttonDesc="Save" onClick={handleSave}/> }
         </div>
     ) 
 }

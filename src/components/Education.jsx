@@ -147,105 +147,105 @@ function Education({ updateFormData, formData }) {
 
     return (
         <div className="inputSection">
-            <AddButton className="addButton" addTitle={"Education"} onClick={toggleInputBoxes}
-            />
-            <h3>Education 1:</h3>
+            <AddButton className="addButton" addTitle={"Education"} onClick={toggleInputBoxes}/>
             <div className="inputBoxes" style={{display: inputBoxes}} >
+                <h3>Education 1:</h3>
                 <InputGroup
-                inputTitle="University"
-                inputType="text"
-                value={inputValues.university}
-                onChange={(value) => handleInputChange('university', value)}
-                saved={savedStates.university}
+                    inputTitle="University:"
+                    inputType="text"
+                    value={inputValues.university}
+                    onChange={(value) => handleInputChange('university', value)}
+                    saved={savedStates.university}
                 />
                 <InputGroup
-                inputTitle="Degree"
-                inputType="text"
-                value={inputValues.degree}
-                onChange={(value) => handleInputChange('degree', value)}
-                saved={savedStates.degree}
+                    inputTitle="Degree:"
+                    inputType="text"
+                    value={inputValues.degree}
+                    onChange={(value) => handleInputChange('degree', value)}
+                    saved={savedStates.degree}
                 />
                 <InputGroup
-                inputTitle="Major"
-                inputType="text"
-                value={inputValues.major}
-                onChange={(value) => handleInputChange('major', value)}
-                saved={savedStates.major}
+                    inputTitle="Major:"
+                    inputType="text"
+                    value={inputValues.major}
+                    onChange={(value) => handleInputChange('major', value)}
+                    saved={savedStates.major}
                 />
                 <InputGroup
-                inputTitle="GPA"
-                inputType="number"
-                value={inputValues.GPA}
-                onChange={(value) => handleInputChange('GPA', value)}
-                saved={savedStates.GPA}
+                    inputTitle="GPA:"
+                    inputType="number"
+                    value={inputValues.GPA}
+                    onChange={(value) => handleInputChange('GPA', value)}
+                    saved={savedStates.GPA}
                 />
                 <InputGroup
-                inputTitle="Start Date"
-                inputType="month"
-                value={inputValues.startDate}
-                onChange={(value) => handleInputChange('startDate', value)}
-                saved={savedStates.startDate}
+                    inputTitle="Start Date:"
+                    inputType="month"
+                    value={inputValues.startDate}
+                    onChange={(value) => handleInputChange('startDate', value)}
+                    saved={savedStates.startDate}
                 />
                 <InputGroup
-                inputTitle="End Date"
-                inputType="month"
-                value={inputValues.endDate}
-                onChange={(value) => handleInputChange('endDate', value)}
-                saved={savedStates.endDate}
-                />  
+                    inputTitle="End Date:"
+                    inputType="month"
+                    value={inputValues.endDate}
+                    onChange={(value) => handleInputChange('endDate', value)}
+                    saved={savedStates.endDate}
+                />
+                {savedStates.university ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+                {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addEducation}/>} </div> 
+                : <Button buttonDesc="Save" onClick={handleSave}/> }  
             </div>
-
-            {addAnother ? <h3>Education 2:</h3> : ''}
 
             {addAnother ? 
             <div className="inputBoxes" style={{display: inputBoxes}} >
-            
+                {addAnother ? <h3>Education 2:</h3> : ''}
                 <InputGroup
-                inputTitle="University"
-                inputType="text"
-                value={inputValues.university2}
-                onChange={(value) => handleInputChange('university2', value)}
-                saved={savedStates.university2}
+                    inputTitle="University:"
+                    inputType="text"
+                    value={inputValues.university2}
+                    onChange={(value) => handleInputChange('university2', value)}
+                    saved={savedStates.university2}
                 />
                 <InputGroup
-                inputTitle="Degree"
-                inputType="text"
-                value={inputValues.degree2}
-                onChange={(value) => handleInputChange('degree2', value)}
-                saved={savedStates.degree2}
+                    inputTitle="Degree:"
+                    inputType="text"
+                    value={inputValues.degree2}
+                    onChange={(value) => handleInputChange('degree2', value)}
+                    saved={savedStates.degree2}
                 />
                 <InputGroup
-                inputTitle="Major"
-                inputType="text"
-                value={inputValues.major2}
-                onChange={(value) => handleInputChange('major2', value)}
-                saved={savedStates.major2}
+                    inputTitle="Major:"
+                    inputType="text"
+                    value={inputValues.major2}
+                    onChange={(value) => handleInputChange('major2', value)}
+                    saved={savedStates.major2}
                 />
                 <InputGroup
-                inputTitle="GPA"
-                inputType="number"
-                value={inputValues.GPA2}
-                onChange={(value) => handleInputChange('GPA2', value)}
-                saved={savedStates.GPA2}
+                    inputTitle="GPA:"
+                    inputType="number"
+                    value={inputValues.GPA2}
+                    onChange={(value) => handleInputChange('GPA2', value)}
+                    saved={savedStates.GPA2}
                 />
                 <InputGroup
-                inputTitle="Start Date"
-                inputType="month"
-                value={inputValues.startDate2}
-                onChange={(value) => handleInputChange('startDate2', value)}
-                saved={savedStates.startDate2}
+                    inputTitle="Start Date:"
+                    inputType="month"
+                    value={inputValues.startDate2}
+                    onChange={(value) => handleInputChange('startDate2', value)}
+                    saved={savedStates.startDate2}
                 />
                 <InputGroup
-                inputTitle="End Date"
-                inputType="month"
-                value={inputValues.endDate2}
-                onChange={(value) => handleInputChange('endDate2', value)}
-                saved={savedStates.endDate2}
+                    inputTitle="End Date:"
+                    inputType="month"
+                    value={inputValues.endDate2}
+                    onChange={(value) => handleInputChange('endDate2', value)}
+                    saved={savedStates.endDate2}
                 />
+                {savedStates.university ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+                {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addEducation}/>} </div> 
+                : <Button buttonDesc="Save" onClick={handleSave}/> }
             </div> : ''}
-            {savedStates.university ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
-            {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addEducation}/>} </div> 
-            : <Button buttonDesc="Save" onClick={handleSave}/> }
         </div>
     )}
 

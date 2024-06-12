@@ -117,76 +117,78 @@ function Experience({ updateFormData, formData }) {
 
     return (
         <div className="inputSection">
-            <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={"Work Experience"}
-            />
-            <h3>Experience 1:</h3>
+            <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={"Work Experience"}/>
             <div className="inputBoxes" style={{display: inputBoxes}}>
+                <h3>Experience 1:</h3>
                 <InputGroup
-                    inputTitle="Job Title"
+                    inputTitle="Job Title:"
                     inputType= "text"
                     value={inputValues.jobName}
                     onChange={(value) => handleInputChange('jobName', value)}
                     saved={savedStates.jobName}
                 />
                 <InputGroup
-                    inputTitle="Description"
+                    inputTitle="Description:"
                     inputType="text"
                     value={inputValues.description}
                     onChange={(value) => handleInputChange('description', value)}
                     saved={savedStates.description}
                 />
                 <InputGroup
-                    inputTitle="Start Date"
+                    inputTitle="Start Date:"
                     inputType="month"
                     value={inputValues.startDate}
                     onChange={(value) => handleInputChange('startDate', value)}
                     saved={savedStates.startDate}
                 />
                 <InputGroup
-                    inputTitle="End Date"
+                    inputTitle="End Date:"
                     inputType="month"
                     value={inputValues.endDate}
                     onChange={(value) => handleInputChange('endDate', value)}
                     saved={savedStates.endDate}
                 />
-             </div>
-             {addAnother ? <h3>Experience 2:</h3> : ''}
+                {addAnother ? '' : savedStates.jobName ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+                {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addProject}/>} </div> 
+                : <Button buttonDesc="Save" onClick={handleSave}/> }
+            </div>
 
-             {addAnother ? 
-             <div className="inputBoxes" style={{display: inputBoxes}}>
-             <InputGroup
-                 inputTitle="Job Title"
-                 inputType= "text"
-                 value={inputValues.jobName2}
-                 onChange={(value) => handleInputChange('jobName2', value)}
-                 saved={savedStates.jobName2}
-             />
-             <InputGroup
-                 inputTitle="Description"
-                 inputType="text"
-                 value={inputValues.description2}
-                 onChange={(value) => handleInputChange('description2', value)}
-                 saved={savedStates.description2}
-             />
-             <InputGroup
-                 inputTitle="Start Date"
-                 inputType="month"
-                 value={inputValues.startDate2}
-                 onChange={(value) => handleInputChange('startDate2', value)}
-                 saved={savedStates.startDate2}
-             />
-             <InputGroup
-                 inputTitle="End Date"
-                 inputType="month"
-                 value={inputValues.endDate2}
-                 onChange={(value) => handleInputChange('endDate2', value)}
-                 saved={savedStates.endDate2}
-             />
-          </div>
+            {addAnother ? 
+            <div className="inputBoxes" style={{display: inputBoxes}}>
+                {addAnother ? <h3>Experience 2:</h3> : ''}
+                <InputGroup
+                    inputTitle="Job Title:"
+                    inputType= "text"
+                    value={inputValues.jobName2}
+                    onChange={(value) => handleInputChange('jobName2', value)}
+                    saved={savedStates.jobName2}
+                />
+                <InputGroup
+                    inputTitle="Description:"
+                    inputType="text"
+                    value={inputValues.description2}
+                    onChange={(value) => handleInputChange('description2', value)}
+                    saved={savedStates.description2}
+                />
+                <InputGroup
+                    inputTitle="Start Date:"
+                    inputType="month"
+                    value={inputValues.startDate2}
+                    onChange={(value) => handleInputChange('startDate2', value)}
+                    saved={savedStates.startDate2}
+                />
+                <InputGroup
+                    inputTitle="End Date:"
+                    inputType="month"
+                    value={inputValues.endDate2}
+                    onChange={(value) => handleInputChange('endDate2', value)}
+                    saved={savedStates.endDate2}
+                />
+                {savedStates.jobName ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
+                {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addProject}/>} </div> 
+                : <Button buttonDesc="Save" onClick={handleSave}/> }
+            </div>
              : ''}
-             {savedStates.jobName ? <div> <Button buttonDesc="Edit" onClick={handleEdit} /> 
-             {addAnother ? <Button buttonDesc={"Clear"} onClick={clear}/> : <Button buttonDesc="Add Another" onClick={addProject}/>} </div> 
-            : <Button buttonDesc="Save" onClick={handleSave}/> }
         </div>
     ) 
 }

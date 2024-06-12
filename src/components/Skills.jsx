@@ -44,7 +44,7 @@ function Skills({ updateFormData }) {
             <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={'Skills'} />
             <div className="inputBoxes" style={{ display: inputBoxes }}>
                 <InputGroup
-                    inputTitle="Skills"
+                    inputTitle="Skills:"
                     inputType="text"
                     value={inputValues.skills}
                     onChange={(value) => handleInputChange('skills', value)}

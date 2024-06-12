@@ -21,11 +21,9 @@ h3 {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     margin: 25px;
     border-radius: 5px;
-    background-color: blue;
+    background-color: #190061;
     padding: 15px;
     width: 20vw;
     border: 1px solid black;

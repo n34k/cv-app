@@ -1,11 +1,34 @@
 .app {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     height: 100%;
+    background-color: black;
+}
+
+.header, .footer {
+    background-color: #190061;
+    font-family: 'Poppins';
+    color: white;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    border: #0C0032 5px solid;
+    height: 5vh;
+}
+
+.middle {
+    display: flex;
+    justify-content: space-between;
 }
 
 .inputs {
     overflow: auto;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.resumeSection {
+    display: flex;
+    align-items: center;
 }

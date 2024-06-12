@@ -8,7 +8,7 @@ function InputGroup({ inputTitle, inputType, value, onChange, saved }) {
 
   return (
     <div className='inputBox'>
-      <h4>{inputTitle}</h4>
+      <h4 style={{ textDecoration: 'underline' }}>{inputTitle}</h4>
         {saved ? <div className='savedInfo'>{value}</div> : <input
           className='input'
           type={inputType}

@@ -5,7 +5,6 @@ import InputGroup from './InputGroup';
 import Button from './Button';
 
 function PersonalDetails({  updateFormData }) {
-
   const [inputValues, setInputValues] = useState({
     firstName: '',
     lastName: '',
@@ -70,42 +69,42 @@ function PersonalDetails({  updateFormData }) {
       <AddButton className="addButton" onClick={toggleInputBoxes} addTitle={'Personal Information'} />
       <div className="inputBoxes" style={{ display: inputBoxes }}>
         <InputGroup
-            inputTitle="First Name" 
+            inputTitle="First Name:" 
             inputType="text" 
             value={inputValues.firstName}
             onChange={(value) => handleInputChange('firstName', value)}
             saved={savedStates.firstName}
         />
         <InputGroup 
-            inputTitle="Last Name" 
+            inputTitle="Last Name:" 
             inputType="text" 
             value={inputValues.lastName} 
             onChange={(value) => handleInputChange('lastName', value)} 
             saved={savedStates.lastName}
         />
          <InputGroup 
-            inputTitle="Address" 
+            inputTitle="Address:" 
             inputType="text" 
             value={inputValues.address} 
             onChange={(value) => handleInputChange('address', value)} 
             saved={savedStates.address}
         />
         <InputGroup 
-            inputTitle="Email" 
+            inputTitle="Email:" 
             inputType="email" 
             value={inputValues.email} 
             onChange={(value) => handleInputChange('email', value)}
             saved={savedStates.email}
         />
         <InputGroup 
-            inputTitle="Phone Number" 
+            inputTitle="Phone Number:" 
             inputType="phone" 
             value={inputValues.number} 
             onChange={(value) => handleInputChange('number', value)} 
             saved={savedStates.number}
         />
         <InputGroup 
-            inputTitle="Link"
+            inputTitle="Link:"
             inputType="url" 
             value={inputValues.link} 
             onChange={(value) => handleInputChange('link', value)} 

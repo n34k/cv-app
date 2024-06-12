@@ -8,7 +8,6 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     font-family: 'Times New Roman', Times, serif;
     padding: 50px;
-
 }
 
 .sectionTitle {
@@ -39,4 +38,11 @@ p {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
 }
